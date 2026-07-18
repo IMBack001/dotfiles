@@ -67,7 +67,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               sharedModules = [ lazyvim.homeManagerModules.default ];
-              users.avs = import ./home.nix;
+              users.avs = import ./home/home.nix;
             };
           }
         ];
