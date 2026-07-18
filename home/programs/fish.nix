@@ -1,5 +1,5 @@
-{ _ }: {
-  fish = {
+{ ... }: {
+  programs.fish = {
     enable = true;
     shellAliases = {
       btw = "echo I use NixOS btw";

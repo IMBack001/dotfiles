@@ -1,5 +1,5 @@
-{ _ }: {
-  git = {
+{ ... }: {
+  programs.git = {
     enable = true;
     settings = {
       user.name = "Abish";

@@ -1,4 +1,4 @@
-{ _ }: {
+{ ... }: {
   imports = [
     ./packages.nix
 
@@ -19,5 +19,4 @@
     };
     stateVersion = "26.05";
   };
-  home.programs.home-manager.enable = true;
 }
