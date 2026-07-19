@@ -3,7 +3,7 @@
     enable = true;
     enableFishIntegration = true;
     presets = [
-      "jetpack"
+      "tokyo-night"
     ];
   };
 }

@@ -6,6 +6,7 @@
       cd = "z";
       ls = "eza -l --group-directories-first --icons=always";
       lsa = "eza -la --group-directories-first --icons=always";
+      lta = "eza -laT --group-directories-first --icons=always";
     };
     interactiveShellInit = ''
       set -g fish_greeting
