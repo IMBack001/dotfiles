@@ -9,7 +9,7 @@
     spotify
     kdePackages.kclock
     kdePackages.kcalc
-    floorp-bin
-  ];
-
+    gparted
+    discord
+];
 }

@@ -2,12 +2,8 @@
   imports = [
     ./packages.nix
 
-    ./programs/fastfetch.nix
-    ./programs/fish.nix
-    ./programs/git.nix
-    ./programs/neovim.nix
-    ./programs/startship.nix
-    ./programs/zoxide.nix
+    ./programs/default.nix
+    ./configs/default.nix
   ];
 
   home = {

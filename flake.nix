@@ -36,13 +36,13 @@
 
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [
-          helium.overlays.default
-        ];
-        config.allowUnfree = true;
-      };
+#       pkgs = import nixpkgs {
+#         inherit system;
+#         overlays = [
+#           helium.overlays.default
+#         ];
+#         config.allowUnfree = true;
+#       };
     in
     {
       formatter.${system} = alejandra.packages.${system}.default;
