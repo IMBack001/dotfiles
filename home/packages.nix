@@ -1,15 +1,23 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [
-    tree
-    vlc
-    lazygit
-    libreoffice
-    python3
-    helium
-    spotify
-    kdePackages.kclock
-    kdePackages.kcalc
-    gparted
-    discord
-];
+{ pkgs, unstable, ... }: {
+  home.packages =
+    with pkgs;
+    [
+      tree
+      vlc
+      lazygit
+      python3
+      kdePackages.kclock
+      kdePackages.kcalc
+      helium
+      gcc
+      nil
+      eza
+      unzip
+      rustup
+    ]
+    ++ (with unstable; [
+      libreoffice
+      discord
+      spotify
+    ]);
 }

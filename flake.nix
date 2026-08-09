@@ -3,7 +3,9 @@
 
   inputs = {
 
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     alejandra = {
       url = "github:kamadorueda/alejandra";
@@ -11,7 +13,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -27,6 +29,7 @@
     {
       self,
       nixpkgs,
+      nixpkgs-unstable,
       alejandra,
       home-manager,
       lazyvim,
@@ -36,13 +39,12 @@
 
     let
       system = "x86_64-linux";
-#       pkgs = import nixpkgs {
-#         inherit system;
-#         overlays = [
-#           helium.overlays.default
-#         ];
-#         config.allowUnfree = true;
-#       };
+
+      unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
     in
     {
       formatter.${system} = alejandra.packages.${system}.default;
@@ -50,6 +52,7 @@
         inherit system;
         specialArgs = {
           inherit self;
+          inherit unstable;
         };
         modules = [
           {
@@ -67,6 +70,9 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               sharedModules = [ lazyvim.homeManagerModules.default ];
+              extraSpecialArgs = {
+                inherit unstable;
+              };
               users.avs = import ./home/home.nix;
             };
           }
