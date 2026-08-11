@@ -10,11 +10,15 @@
     lazyvim = {
       enable = true;
       extras = {
-        lang.nix.enable = true;
-        lang.python = {
-          enable = true;
-          installDependencies = true;
-          installRuntimeDependencies = true;
+        lang = {
+          nix.enable = true;
+          rust.enable = true;
+          clangd.enable = true;
+          python = {
+            enable = true;
+            installDependencies = true;
+            installRuntimeDependencies = true;
+          };
         };
         editor.neo-tree.enable = true;
       };

@@ -17,16 +17,25 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lazyvim.url = "github:pfassina/lazyvim-nix";
+    lazyvim = {
+      url = "github:pfassina/lazyvim-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     helium = {
       url = "github:oxcl/nix-flake-helium-browser";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
-    {
+    inputs@{
       self,
       nixpkgs,
       nixpkgs-unstable,
@@ -34,6 +43,7 @@
       home-manager,
       lazyvim,
       helium,
+      zen-browser,
       ...
     }:
 
@@ -72,6 +82,7 @@
               sharedModules = [ lazyvim.homeManagerModules.default ];
               extraSpecialArgs = {
                 inherit unstable;
+                inherit inputs;
               };
               users.avs = import ./home/home.nix;
             };

@@ -1,4 +1,10 @@
-{ pkgs, unstable, ... }: {
+{
+  pkgs,
+  unstable,
+  inputs,
+  ...
+}:
+{
   home.packages =
     with pkgs;
     [
@@ -10,14 +16,17 @@
       kdePackages.kcalc
       helium
       gcc
+      clang-tools
       nil
       eza
       unzip
       rustup
+      inputs.zen-browser.packages.${pkgs.system}.zen-browser
     ]
     ++ (with unstable; [
       libreoffice
       discord
       spotify
+      zed-editor
     ]);
 }
